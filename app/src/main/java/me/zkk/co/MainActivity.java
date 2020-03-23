@@ -44,15 +44,16 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(selfActivity, "同步失败", Toast.LENGTH_LONG).show();
                             }
                         });
+                    } else {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                syncState.setText("已同步");
+                                responseView.setText(sync.getResponse());
+                                Toast.makeText(selfActivity, "同步成功", Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            syncState.setText("已同步");
-                            responseView.setText(sync.getResponse());
-                            Toast.makeText(selfActivity, "同步成功", Toast.LENGTH_LONG).show();
-                        }
-                    });
                 }
 
                 @Override

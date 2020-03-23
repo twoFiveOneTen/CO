@@ -59,6 +59,7 @@
             android:id="@+id/response"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="40dp"
             android:background="@color/colorPrimaryDark"
             android:textColor="#fff"
             />
