@@ -3,12 +3,17 @@ package me.zkk.co;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import me.zkk.kkapp.ExampleService;
+import me.zkk.kkapp.ExampleServiceImpl;
+import me.zkk.quarkco.call.InstanceMaker;
 import me.zkk.quarkco.manager.QuarkManager;
 import me.zkk.quarkco.sync.Functions;
 import me.zkk.quarkco.sync.HttpCallbackListener;
@@ -25,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
     private TextView syncState; // 同步状态
 
     private  TextView responseView; // 服务端的回应
+
+    private Button localExecute;    // 本地执行
+
+    private Button remoteExecute;   // 远程执行
+
+    private TextView localResult;   // 本地执行结果
+
+    private TextView remoteResult;  // 远程执行结果
+
+    private EditText startNum;  // 嵌套循环开始数
+
+    private EditText endNum;    //嵌套循环结束数
 
     private SyncCode sync;  //代码同步类
 
@@ -75,6 +92,12 @@ public class MainActivity extends AppCompatActivity {
         cancelButton = findViewById(R.id.cancelButton);
         syncState = findViewById(R.id.syncState);
         responseView = findViewById(R.id.response);
+        localExecute = findViewById(R.id.localExecute);
+        localResult = findViewById(R.id.localExecuteResult);
+        remoteExecute = findViewById(R.id.RemoteExecute);
+        remoteResult = findViewById(R.id.RemoteExecuteResult);
+        startNum = findViewById(R.id.startNum);
+        endNum = findViewById(R.id.endNum);
         sync = new SyncCode(this);
         manager = QuarkManager.getInstance();
     }
@@ -136,6 +159,91 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        localExecute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String start = startNum.getText().toString().trim();
+                            String end = endNum.getText().toString().trim();
+                            if(start.length() == 0 || end.length() == 0) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                                return;
+                            }
+                            long startNumber = Long.valueOf(start);
+                            long endNumber = Long.valueOf(end);
+                            final long startTime = System.currentTimeMillis();
+                            ExampleService exampleService = new ExampleServiceImpl();
+                            final long result = exampleService.count(startNumber, endNumber);
+                            final long endTime = System.currentTimeMillis();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    localResult.setText(result + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                }
+                            });
+                        }
+                    }).start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        remoteExecute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if(!manager.isSyncSuccess()) {
+                        Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String start = startNum.getText().toString().trim();
+                            String end = endNum.getText().toString().trim();
+                            if(start.length() == 0 || end.length() == 0) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                                return;
+                            }
+                            long startNumber = Long.valueOf(start);
+                            long endNumber = Long.valueOf(end);
+                            final long startTime = System.currentTimeMillis();
+                            ExampleService exampleService = null;
+                            try {
+                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            final long result = exampleService.count(startNumber, endNumber);
+                            final long endTime = System.currentTimeMillis();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    remoteResult.setText(result + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                }
+                            });
+                        }
+                    }).start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -145,5 +253,12 @@ public class MainActivity extends AppCompatActivity {
         initSetting();
         setButtonListener();
 
+
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
 }

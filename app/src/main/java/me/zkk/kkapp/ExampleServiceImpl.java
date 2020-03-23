@@ -22,4 +22,13 @@ public class ExampleServiceImpl implements ExampleService {
     public String returnParam(String str) {
         return str;
     }
+
+    @Override
+    public long count(long start, long end) {
+        long i, j;
+        for(i = start; i <= end; ++i) {
+            for(j = start; j <= end; ++j);
+        }
+        return i;
+    }
 }

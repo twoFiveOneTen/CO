@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -17,7 +21,6 @@
             android:text="同步代码"
             android:layout_width="150dp"
             android:layout_height="wrap_content" />
-        />
         <Button
             android:id="@+id/cancelButton"
             android:background="@color/colorPrimaryDark"
@@ -29,7 +32,6 @@
             android:text="终止远程"
             android:layout_width="150dp"
             android:layout_height="wrap_content" />
-        />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -76,4 +78,98 @@
             android:textColor="#fff"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="循环开始数:"
+                android:textSize="20dp"/>
+            <EditText
+                android:id="@+id/startNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="循环结束数:"
+                android:textSize="20dp"/>
+            <EditText
+                android:id="@+id/endNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/localExecute"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="3dp"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:text="本地执行"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/localExecuteResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:minHeight="200dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/RemoteExecute"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="right"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:text="远程执行"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/RemoteExecuteResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:minHeight="200dp"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
+</ScrollView>

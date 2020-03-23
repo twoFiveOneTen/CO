@@ -4,4 +4,5 @@ public interface ExampleService {
     public int computeSum(int a, int b);
     public String replace(TestClass test);
     public String returnParam(String str);
+    public long count(long start, long end);
 }
