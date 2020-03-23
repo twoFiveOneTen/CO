@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import me.zkk.quarkco.manager.QuarkManager;
+import me.zkk.quarkco.sync.Functions;
 import me.zkk.quarkco.sync.HttpCallbackListener;
 import me.zkk.quarkco.sync.SyncCode;
 
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private Activity selfActivity = this;
 
     private Button syncButton;  // 同步按钮
+
+    private Button cancelButton;    //终止服务按钮
 
     private TextView syncState; // 同步状态
 
@@ -69,10 +72,70 @@ public class MainActivity extends AppCompatActivity {
     // 初始化设置
     private void initSetting() {
         syncButton = findViewById(R.id.syncButton);
+        cancelButton = findViewById(R.id.cancelButton);
         syncState = findViewById(R.id.syncState);
         responseView = findViewById(R.id.response);
         sync = new SyncCode(this);
         manager = QuarkManager.getInstance();
+    }
+
+    // 终止服务
+    private void cancelRemoteService() throws Exception {
+        if(!manager.isSyncSuccess()) {
+            Toast.makeText(selfActivity, "未同步，没有服务需要终止", Toast.LENGTH_LONG).show();
+            return;
+        }
+        manager.stopRemoteService(new HttpCallbackListener() {
+            @Override
+            public void onFinish(final String response) throws Exception {
+                if(!Functions.getJsonResult(response, "result").equals("success")) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            responseView.setText(response);
+                            Toast.makeText(selfActivity, "终止失败", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            syncState.setText("未同步");
+                            responseView.setText(response);
+                            Toast.makeText(selfActivity, "终止成功", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void setButtonListener() {
+        // 同步代码按钮
+        syncButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                syncCode();
+            }
+        });
+
+        // 终止远程服务按钮
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    cancelRemoteService();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -80,11 +143,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initSetting();
-        syncButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                syncCode();
-            }
-        });
+        setButtonListener();
+
     }
 }

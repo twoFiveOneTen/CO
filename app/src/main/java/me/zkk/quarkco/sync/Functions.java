@@ -2,6 +2,9 @@ package me.zkk.quarkco.sync;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -29,6 +32,20 @@ public class Functions extends AppCompatActivity {
         return buffer.toString();
     }
 
+    /**
+     * 从json字符串中提取想要的结果
+     * @param jsonStr json字符串
+     * @param getKey 想要获取的键值
+     * @return String/null
+     */
+    public static String getJsonResult(String jsonStr, String getKey) throws JSONException {
+        JSONObject object = new JSONObject(jsonStr);
+        if(object.has(getKey)) {
+            return object.getString(getKey);
+        } else {
+            return null;
+        }
+    }
 
     public static void sendHttpRequest(final String param, final HttpCallbackListener listener) throws Exception {
         new Thread(new Runnable() {

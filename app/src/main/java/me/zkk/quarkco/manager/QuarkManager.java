@@ -86,6 +86,9 @@ public class QuarkManager {
         Functions.sendHttpRequest(param, new HttpCallbackListener() {
             @Override
             public void onFinish(String response) throws Exception {
+                if(Functions.getJsonResult(response, "result").equals("success")) {
+                    setSyncSuccess(false);
+                }
                 uiListener.onFinish(response);
             }
 
