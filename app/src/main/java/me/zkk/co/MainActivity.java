@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView remoteResult;  // 远程执行结果
 
-    private EditText startNum;  // 嵌套循环开始数
-
     private EditText endNum;    //嵌套循环结束数
 
     private SyncCode sync;  //代码同步类
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             public void run() {
                                 syncState.setText("未同步");
                                 responseView.setText(sync.getResponse());
-                                Toast.makeText(selfActivity, "同步失败", Toast.LENGTH_LONG).show();
+                                Toast.makeText(selfActivity, "同步失败", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             public void run() {
                                 syncState.setText("已同步");
                                 responseView.setText(sync.getResponse());
-                                Toast.makeText(selfActivity, "同步成功", Toast.LENGTH_LONG).show();
+                                Toast.makeText(selfActivity, "同步成功", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -96,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
         localResult = findViewById(R.id.localExecuteResult);
         remoteExecute = findViewById(R.id.RemoteExecute);
         remoteResult = findViewById(R.id.RemoteExecuteResult);
-        startNum = findViewById(R.id.startNum);
         endNum = findViewById(R.id.endNum);
         sync = new SyncCode(this);
         manager = QuarkManager.getInstance();
@@ -105,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     // 终止服务
     private void cancelRemoteService() throws Exception {
         if(!manager.isSyncSuccess()) {
-            Toast.makeText(selfActivity, "未同步，没有服务需要终止", Toast.LENGTH_LONG).show();
+            Toast.makeText(selfActivity, "未同步，没有服务需要终止", Toast.LENGTH_SHORT).show();
             return;
         }
         manager.stopRemoteService(new HttpCallbackListener() {
@@ -116,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             responseView.setText(response);
-                            Toast.makeText(selfActivity, "终止失败", Toast.LENGTH_LONG).show();
+                            Toast.makeText(selfActivity, "终止失败", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
@@ -125,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             syncState.setText("未同步");
                             responseView.setText(response);
-                            Toast.makeText(selfActivity, "终止成功", Toast.LENGTH_LONG).show();
+                            Toast.makeText(selfActivity, "终止成功", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -166,9 +163,8 @@ public class MainActivity extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            String start = startNum.getText().toString().trim();
                             String end = endNum.getText().toString().trim();
-                            if(start.length() == 0 || end.length() == 0) {
+                            if(end.length() == 0) {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -177,16 +173,21 @@ public class MainActivity extends AppCompatActivity {
                                 });
                                 return;
                             }
-                            long startNumber = Long.valueOf(start);
-                            long endNumber = Long.valueOf(end);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    localResult.setText("运行中...");
+                                }
+                            });
+                            final long endNumber = Long.valueOf(end);
                             final long startTime = System.currentTimeMillis();
                             ExampleService exampleService = new ExampleServiceImpl();
-                            final long result = exampleService.count(startNumber, endNumber);
+                            exampleService.count(1, endNumber);
                             final long endTime = System.currentTimeMillis();
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    localResult.setText(result + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                    localResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
                                 }
                             });
                         }
@@ -205,12 +206,12 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    remoteResult.setText("运行中...");
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            String start = startNum.getText().toString().trim();
                             String end = endNum.getText().toString().trim();
-                            if(start.length() == 0 || end.length() == 0) {
+                            if(end.length() == 0) {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -219,8 +220,13 @@ public class MainActivity extends AppCompatActivity {
                                 });
                                 return;
                             }
-                            long startNumber = Long.valueOf(start);
-                            long endNumber = Long.valueOf(end);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    remoteResult.setText("运行中...");
+                                }
+                            });
+                            final long endNumber = Long.valueOf(end);
                             final long startTime = System.currentTimeMillis();
                             ExampleService exampleService = null;
                             try {
@@ -228,12 +234,12 @@ public class MainActivity extends AppCompatActivity {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            final long result = exampleService.count(startNumber, endNumber);
+                            exampleService.count(1, endNumber);
                             final long endTime = System.currentTimeMillis();
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    remoteResult.setText(result + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                    remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
                                 }
                             });
                         }
