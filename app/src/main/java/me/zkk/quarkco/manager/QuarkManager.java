@@ -44,8 +44,12 @@ public class QuarkManager {
         return this.serviceArray;
     }
 
-    public void setServiceArray(String[] serviceArray) {
-        this.serviceArray = serviceArray;
+    public void setServiceArray() {
+        this.serviceArray = new String[]{
+                // 在这里成对设置接口类和其实现类的全名（下划线形式）
+                "me_zkk_kkapp_ExampleService_me_zkk_kkapp_ExampleServiceImpl",
+                "me_zkk_kkapp_ExampleService2_me_zkk_kkapp_ExampleServiceImpl"
+        };
     }
 
     public HashMap<String, Integer> getServiceMap() {

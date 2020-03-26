@@ -1,6 +1,6 @@
 package me.zkk.kkapp;
 
-public class ExampleServiceImpl implements ExampleService {
+public class ExampleServiceImpl implements ExampleService, ExampleService2 {
 
     @Override
     public String sayHello() {
@@ -30,5 +30,10 @@ public class ExampleServiceImpl implements ExampleService {
             for(j = start; j <= end; ++j);
         }
         return i;
+    }
+
+    @Override
+    public String sayGoodbye() {
+        return "goodBye!";
     }
 }

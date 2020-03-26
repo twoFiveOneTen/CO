@@ -21,7 +21,7 @@ public class InstanceMaker {
         CallHandler callHandler = new CallHandler();
         Object instance = null;
         String remoteHost = SyncConfig.remoteHost;
-        String implNameInLine = implString.replace('.', '_');
+        String implNameInLine = (interfaceString + "_" + implString).replace('.', '_');
         QuarkManager manager = QuarkManager.getInstance();
         if(manager.getServiceMap().containsKey(implNameInLine)) {
             int portWasBinded = manager.getServiceMap().get(implNameInLine);

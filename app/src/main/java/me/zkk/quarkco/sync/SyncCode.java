@@ -53,8 +53,8 @@ public class SyncCode extends AppCompatActivity {
     public String makeParam() throws Exception {
         Map<String, String> myMap = new HashMap<>();
         QuarkManager manager = QuarkManager.getInstance();
-        manager.setServiceArray(currentActivity.getAssets().list(SyncConfig.codeDir));
-        String[] fileNames = manager.getServiceArray();
+        manager.setServiceArray();
+        String[] fileNames = currentActivity.getAssets().list(SyncConfig.codeDir);
         if(fileNames.length > 0) {
             for(String fileName:fileNames) {
                 myMap.put(fileName, getCode(fileName));
