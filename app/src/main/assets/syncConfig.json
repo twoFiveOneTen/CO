@@ -1,6 +1,6 @@
 {
-  "remoteHost": "quark.mecdeveloper.com",
-  "postUrl": "https://quark.mecdeveloper.com/sync.php",
+  "remoteHost": "quarkco.wuwz.net",
+  "postUrl": "https://quarkco.wuwz.net/sync.php",
   "postParamName": "quarkco",
   "codeDir": "data"
 }
