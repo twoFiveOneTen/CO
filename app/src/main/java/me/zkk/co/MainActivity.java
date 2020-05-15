@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import me.zkk.kkapp.ExampleService;
-import me.zkk.kkapp.ExampleServiceImpl;
+import me.zkk.kkapp.ExampleService2;
+import me.zkk.kkapp.GetCharNum;
 import me.zkk.quarkco.call.InstanceMaker;
 import me.zkk.quarkco.manager.QuarkManager;
 import me.zkk.quarkco.sync.Functions;
@@ -181,13 +181,22 @@ public class MainActivity extends AppCompatActivity {
                             });
                             final long endNumber = Long.valueOf(end);
                             final long startTime = System.currentTimeMillis();
-                            ExampleService exampleService = new ExampleServiceImpl();
-                            exampleService.count(1, endNumber);
+//                            ExampleService exampleService = new ExampleServiceImpl();
+                            try {
+                                ExampleService2 getNum = new GetCharNum();
+                                String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                for(int i = 0; i < endNumber; ++i) {
+                                    getNum.getCharNum(str);
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+//                            exampleService.count(1, endNumber);
                             final long endTime = System.currentTimeMillis();
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    localResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                    localResult.setText("\n运行结束\n耗时" + (endTime - startTime) + "ms");
                                 }
                             });
                         }
@@ -228,13 +237,18 @@ public class MainActivity extends AppCompatActivity {
                             });
                             final long endNumber = Long.valueOf(end);
                             final long startTime = System.currentTimeMillis();
-                            ExampleService exampleService = null;
+//                            ExampleService exampleService = null;
                             try {
-                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                for(int i = 0; i < endNumber; ++i) {
+                                    getNum.getCharNum(str);
+                                }
+//                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            exampleService.count(1, endNumber);
+//                            exampleService.count(1, endNumber);
                             final long endTime = System.currentTimeMillis();
                             runOnUiThread(new Runnable() {
                                 @Override

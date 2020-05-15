@@ -1,0 +1,2131 @@
+                }
+            }
+        });
+
+        remoteExecute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if(!manager.isSyncSuccess()) {
+                        Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    remoteResult.setText("运行中...");
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String end = endNum.getText().toString().trim();
+                            if(end.length() == 0) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                                return;
+                            }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    remoteResult.setText("运行中...");
+                                }
+                            });
+                            final long endNumber = Long.valueOf(end);
+                            final long startTime = System.currentTimeMillis();
+//                            ExampleService exampleService = null;
+                            try {
+                                ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                for(int i = 0; i < endNumber; ++i) {
+                                    getNum.getCharNum(str);
+                                }
+//                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+//                            exampleService.count(1, endNumber);
+                            final long endTime = System.currentTimeMillis();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                }
+                            });
+                        }
+                    }).start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+                            }
+                        }
+                    });
+
+                    remoteExecute.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                if(!manager.isSyncSuccess()) {
+                                    Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                remoteResult.setText("运行中...");
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String end = endNum.getText().toString().trim();
+                                        if(end.length() == 0) {
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                            return;
+                                        }
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                remoteResult.setText("运行中...");
+                                            }
+                                        });
+                                        final long endNumber = Long.valueOf(end);
+                                        final long startTime = System.currentTimeMillis();
+            //                            ExampleService exampleService = null;
+                                        try {
+                                            ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                            String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                            for(int i = 0; i < endNumber; ++i) {
+                                                getNum.getCharNum(str);
+                                            }
+            //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+            //                            exampleService.count(1, endNumber);
+                                        final long endTime = System.currentTimeMillis();
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                            }
+                                        });
+                                    }
+                                }).start();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                                        }
+                                    }
+                                });
+
+                                remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        try {
+                                            if(!manager.isSyncSuccess()) {
+                                                Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+                                            remoteResult.setText("运行中...");
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    String end = endNum.getText().toString().trim();
+                                                    if(end.length() == 0) {
+                                                        runOnUiThread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                                        return;
+                                                    }
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            remoteResult.setText("运行中...");
+                                                        }
+                                                    });
+                                                    final long endNumber = Long.valueOf(end);
+                                                    final long startTime = System.currentTimeMillis();
+                        //                            ExampleService exampleService = null;
+                                                    try {
+                                                        ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                        String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                        for(int i = 0; i < endNumber; ++i) {
+                                                            getNum.getCharNum(str);
+                                                        }
+                        //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                        //                            exampleService.count(1, endNumber);
+                                                    final long endTime = System.currentTimeMillis();
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                        }
+                                                    });
+                                                }
+                                            }).start();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                                    }
+                                                }
+                                            });
+
+                                            remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    try {
+                                                        if(!manager.isSyncSuccess()) {
+                                                            Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                            return;
+                                                        }
+                                                        remoteResult.setText("运行中...");
+                                                        new Thread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                String end = endNum.getText().toString().trim();
+                                                                if(end.length() == 0) {
+                                                                    runOnUiThread(new Runnable() {
+                                                                        @Override
+                                                                        public void run() {
+                                                                            Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    });
+                                                                    return;
+                                                                }
+                                                                runOnUiThread(new Runnable() {
+                                                                    @Override
+                                                                    public void run() {
+                                                                        remoteResult.setText("运行中...");
+                                                                    }
+                                                                });
+                                                                final long endNumber = Long.valueOf(end);
+                                                                final long startTime = System.currentTimeMillis();
+                                    //                            ExampleService exampleService = null;
+                                                                try {
+                                                                    ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                    String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                    for(int i = 0; i < endNumber; ++i) {
+                                                                        getNum.getCharNum(str);
+                                                                    }
+                                    //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                } catch (Exception e) {
+                                                                    e.printStackTrace();
+                                                                }
+                                    //                            exampleService.count(1, endNumber);
+                                                                final long endTime = System.currentTimeMillis();
+                                                                runOnUiThread(new Runnable() {
+                                                                    @Override
+                                                                    public void run() {
+                                                                        remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                    }
+                                                                });
+                                                            }
+                                                        }).start();
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                                                }
+                                                            }
+                                                        });
+
+                                                        remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(View v) {
+                                                                try {
+                                                                    if(!manager.isSyncSuccess()) {
+                                                                        Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                                        return;
+                                                                    }
+                                                                    remoteResult.setText("运行中...");
+                                                                    new Thread(new Runnable() {
+                                                                        @Override
+                                                                        public void run() {
+                                                                            String end = endNum.getText().toString().trim();
+                                                                            if(end.length() == 0) {
+                                                                                runOnUiThread(new Runnable() {
+                                                                                    @Override
+                                                                                    public void run() {
+                                                                                        Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                });
+                                                                                return;
+                                                                            }
+                                                                            runOnUiThread(new Runnable() {
+                                                                                @Override
+                                                                                public void run() {
+                                                                                    remoteResult.setText("运行中...");
+                                                                                }
+                                                                            });
+                                                                            final long endNumber = Long.valueOf(end);
+                                                                            final long startTime = System.currentTimeMillis();
+                                                //                            ExampleService exampleService = null;
+                                                                            try {
+                                                                                ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                                String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                                for(int i = 0; i < endNumber; ++i) {
+                                                                                    getNum.getCharNum(str);
+                                                                                }
+                                                //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                            } catch (Exception e) {
+                                                                                e.printStackTrace();
+                                                                            }
+                                                //                            exampleService.count(1, endNumber);
+                                                                            final long endTime = System.currentTimeMillis();
+                                                                            runOnUiThread(new Runnable() {
+                                                                                @Override
+                                                                                public void run() {
+                                                                                    remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                                }
+                                                                            });
+                                                                        }
+                                                                    }).start();
+                                                                } catch (Exception e) {
+                                                                    e.printStackTrace();
+                                                                }
+                                                            }
+
+                 }
+             }
+         });
+
+         remoteExecute.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 try {
+                     if(!manager.isSyncSuccess()) {
+                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                         return;
+                     }
+                     remoteResult.setText("运行中...");
+                     new Thread(new Runnable() {
+                         @Override
+                         public void run() {
+                             String end = endNum.getText().toString().trim();
+                             if(end.length() == 0) {
+                                 runOnUiThread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                     }
+                                 });
+                                 return;
+                             }
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("运行中...");
+                                 }
+                             });
+                             final long endNumber = Long.valueOf(end);
+                             final long startTime = System.currentTimeMillis();
+ //                            ExampleService exampleService = null;
+                             try {
+                                 ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                 String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                 for(int i = 0; i < endNumber; ++i) {
+                                     getNum.getCharNum(str);
+                                 }
+ //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+ //                            exampleService.count(1, endNumber);
+                             final long endTime = System.currentTimeMillis();
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                 }
+                             });
+                         }
+                     }).start();
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+
+                 }
+             }
+         });
+
+         remoteExecute.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 try {
+                     if(!manager.isSyncSuccess()) {
+                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                         return;
+                     }
+                     remoteResult.setText("运行中...");
+                     new Thread(new Runnable() {
+                         @Override
+                         public void run() {
+                             String end = endNum.getText().toString().trim();
+                             if(end.length() == 0) {
+                                 runOnUiThread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                     }
+                                 });
+                                 return;
+                             }
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("运行中...");
+                                 }
+                             });
+                             final long endNumber = Long.valueOf(end);
+                             final long startTime = System.currentTimeMillis();
+ //                            ExampleService exampleService = null;
+                             try {
+                                 ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                 String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                 for(int i = 0; i < endNumber; ++i) {
+                                     getNum.getCharNum(str);
+                                 }
+ //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+ //                            exampleService.count(1, endNumber);
+                             final long endTime = System.currentTimeMillis();
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                 }
+                             });
+                         }
+                     }).start();
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+             }
+                             }
+                         }
+                     });
+
+                     remoteExecute.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View v) {
+                             try {
+                                 if(!manager.isSyncSuccess()) {
+                                     Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                     return;
+                                 }
+                                 remoteResult.setText("运行中...");
+                                 new Thread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         String end = endNum.getText().toString().trim();
+                                         if(end.length() == 0) {
+                                             runOnUiThread(new Runnable() {
+                                                 @Override
+                                                 public void run() {
+                                                     Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                 }
+                                             });
+                                             return;
+                                         }
+                                         runOnUiThread(new Runnable() {
+                                             @Override
+                                             public void run() {
+                                                 remoteResult.setText("运行中...");
+                                             }
+                                         });
+                                         final long endNumber = Long.valueOf(end);
+                                         final long startTime = System.currentTimeMillis();
+             //                            ExampleService exampleService = null;
+                                         try {
+                                             ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                             String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                             for(int i = 0; i < endNumber; ++i) {
+                                                 getNum.getCharNum(str);
+                                             }
+             //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                         } catch (Exception e) {
+                                             e.printStackTrace();
+                                         }
+             //                            exampleService.count(1, endNumber);
+                                         final long endTime = System.currentTimeMillis();
+                                         runOnUiThread(new Runnable() {
+                                             @Override
+                                             public void run() {
+                                                 remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                             }
+                                         });
+                                     }
+                                 }).start();
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+                         }
+                                         }
+                                     }
+                                 });
+
+                                 remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                     @Override
+                                     public void onClick(View v) {
+                                         try {
+                                             if(!manager.isSyncSuccess()) {
+                                                 Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                 return;
+                                             }
+                                             remoteResult.setText("运行中...");
+                                             new Thread(new Runnable() {
+                                                 @Override
+                                                 public void run() {
+                                                     String end = endNum.getText().toString().trim();
+                                                     if(end.length() == 0) {
+                                                         runOnUiThread(new Runnable() {
+                                                             @Override
+                                                             public void run() {
+                                                                 Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                             }
+                                                         });
+                                                         return;
+                                                     }
+                                                     runOnUiThread(new Runnable() {
+                                                         @Override
+                                                         public void run() {
+                                                             remoteResult.setText("运行中...");
+                                                         }
+                                                     });
+                                                     final long endNumber = Long.valueOf(end);
+                                                     final long startTime = System.currentTimeMillis();
+                         //                            ExampleService exampleService = null;
+                                                     try {
+                                                         ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                         String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                         for(int i = 0; i < endNumber; ++i) {
+                                                             getNum.getCharNum(str);
+                                                         }
+                         //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                     } catch (Exception e) {
+                                                         e.printStackTrace();
+                                                     }
+                         //                            exampleService.count(1, endNumber);
+                                                     final long endTime = System.currentTimeMillis();
+                                                     runOnUiThread(new Runnable() {
+                                                         @Override
+                                                         public void run() {
+                                                             remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                         }
+                                                     });
+                                                 }
+                                             }).start();
+                                         } catch (Exception e) {
+                                             e.printStackTrace();
+                                         }
+                                     }
+                                                     }
+                                                 }
+                                             });
+
+                                             remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View v) {
+                                                     try {
+                                                         if(!manager.isSyncSuccess()) {
+                                                             Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                             return;
+                                                         }
+                                                         remoteResult.setText("运行中...");
+                                                         new Thread(new Runnable() {
+                                                             @Override
+                                                             public void run() {
+                                                                 String end = endNum.getText().toString().trim();
+                                                                 if(end.length() == 0) {
+                                                                     runOnUiThread(new Runnable() {
+                                                                         @Override
+                                                                         public void run() {
+                                                                             Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                         }
+                                                                     });
+                                                                     return;
+                                                                 }
+                                                                 runOnUiThread(new Runnable() {
+                                                                     @Override
+                                                                     public void run() {
+                                                                         remoteResult.setText("运行中...");
+                                                                     }
+                                                                 });
+                                                                 final long endNumber = Long.valueOf(end);
+                                                                 final long startTime = System.currentTimeMillis();
+                                     //                            ExampleService exampleService = null;
+                                                                 try {
+                                                                     ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                     String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                     for(int i = 0; i < endNumber; ++i) {
+                                                                         getNum.getCharNum(str);
+                                                                     }
+                                     //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                 } catch (Exception e) {
+                                                                     e.printStackTrace();
+                                                                 }
+                                     //                            exampleService.count(1, endNumber);
+                                                                 final long endTime = System.currentTimeMillis();
+                                                                 runOnUiThread(new Runnable() {
+                                                                     @Override
+                                                                     public void run() {
+                                                                         remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                     }
+                                                                 });
+                                                             }
+                                                         }).start();
+                                                     } catch (Exception e) {
+                                                         e.printStackTrace();
+                                                     }
+                                                 }
+                                                                 }
+                                                             }
+                                                         });
+
+                                                         remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                             @Override
+                                                             public void onClick(View v) {
+                                                                 try {
+                                                                     if(!manager.isSyncSuccess()) {
+                                                                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                                         return;
+                                                                     }
+                                                                     remoteResult.setText("运行中...");
+                                                                     new Thread(new Runnable() {
+                                                                         @Override
+                                                                         public void run() {
+                                                                             String end = endNum.getText().toString().trim();
+                                                                             if(end.length() == 0) {
+                                                                                 runOnUiThread(new Runnable() {
+                                                                                     @Override
+                                                                                     public void run() {
+                                                                                         Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                                     }
+                                                                                 });
+                                                                                 return;
+                                                                             }
+                                                                             runOnUiThread(new Runnable() {
+                                                                                 @Override
+                                                                                 public void run() {
+                                                                                     remoteResult.setText("运行中...");
+                                                                                 }
+                                                                             });
+                                                                             final long endNumber = Long.valueOf(end);
+                                                                             final long startTime = System.currentTimeMillis();
+                                                 //                            ExampleService exampleService = null;
+                                                                             try {
+                                                                                 ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                                 String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                                 for(int i = 0; i < endNumber; ++i) {
+                                                                                     getNum.getCharNum(str);
+                                                                                 }
+                                                 //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                             } catch (Exception e) {
+                                                                                 e.printStackTrace();
+                                                                             }
+                                                 //                            exampleService.count(1, endNumber);
+                                                                             final long endTime = System.currentTimeMillis();
+                                                                             runOnUiThread(new Runnable() {
+                                                                                 @Override
+                                                                                 public void run() {
+                                                                                     remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                                 }
+                                                                             });
+                                                                         }
+                                                                     }).start();
+                                                                 } catch (Exception e) {
+                                                                     e.printStackTrace();
+                                                                 }
+                                                             }
+
+                  }
+              }
+          });
+
+          remoteExecute.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  try {
+                      if(!manager.isSyncSuccess()) {
+                          Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                          return;
+                      }
+                      remoteResult.setText("运行中...");
+                      new Thread(new Runnable() {
+                          @Override
+                          public void run() {
+                              String end = endNum.getText().toString().trim();
+                              if(end.length() == 0) {
+                                  runOnUiThread(new Runnable() {
+                                      @Override
+                                      public void run() {
+                                          Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                      }
+                                  });
+                                  return;
+                              }
+                              runOnUiThread(new Runnable() {
+                                  @Override
+                                  public void run() {
+                                      remoteResult.setText("运行中...");
+                                  }
+                              });
+                              final long endNumber = Long.valueOf(end);
+                              final long startTime = System.currentTimeMillis();
+  //                            ExampleService exampleService = null;
+                              try {
+                                  ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                  String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                  for(int i = 0; i < endNumber; ++i) {
+                                      getNum.getCharNum(str);
+                                  }
+  //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                              } catch (Exception e) {
+                                  e.printStackTrace();
+                              }
+  //                            exampleService.count(1, endNumber);
+                              final long endTime = System.currentTimeMillis();
+                              runOnUiThread(new Runnable() {
+                                  @Override
+                                  public void run() {
+                                      remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                  }
+                              });
+                          }
+                      }).start();
+                  } catch (Exception e) {
+                      e.printStackTrace();
+                  }
+              }
+
+               }
+            }
+        });
+
+        remoteExecute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if(!manager.isSyncSuccess()) {
+                        Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    remoteResult.setText("运行中...");
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String end = endNum.getText().toString().trim();
+                            if(end.length() == 0) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                                return;
+                            }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    remoteResult.setText("运行中...");
+                                }
+                            });
+                            final long endNumber = Long.valueOf(end);
+                            final long startTime = System.currentTimeMillis();
+//                            ExampleService exampleService = null;
+                            try {
+                                ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                for(int i = 0; i < endNumber; ++i) {
+                                    getNum.getCharNum(str);
+                                }
+//                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+//                            exampleService.count(1, endNumber);
+                            final long endTime = System.currentTimeMillis();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                }
+                            });
+                        }
+                    }).start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+                            }
+                        }
+                    });
+
+                    remoteExecute.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                if(!manager.isSyncSuccess()) {
+                                    Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                remoteResult.setText("运行中...");
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String end = endNum.getText().toString().trim();
+                                        if(end.length() == 0) {
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                            return;
+                                        }
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                remoteResult.setText("运行中...");
+                                            }
+                                        });
+                                        final long endNumber = Long.valueOf(end);
+                                        final long startTime = System.currentTimeMillis();
+            //                            ExampleService exampleService = null;
+                                        try {
+                                            ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                            String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                            for(int i = 0; i < endNumber; ++i) {
+                                                getNum.getCharNum(str);
+                                            }
+            //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+            //                            exampleService.count(1, endNumber);
+                                        final long endTime = System.currentTimeMillis();
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                            }
+                                        });
+                                    }
+                                }).start();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                                        }
+                                    }
+                                });
+
+                                remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        try {
+                                            if(!manager.isSyncSuccess()) {
+                                                Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+                                            remoteResult.setText("运行中...");
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    String end = endNum.getText().toString().trim();
+                                                    if(end.length() == 0) {
+                                                        runOnUiThread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                                        return;
+                                                    }
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            remoteResult.setText("运行中...");
+                                                        }
+                                                    });
+                                                    final long endNumber = Long.valueOf(end);
+                                                    final long startTime = System.currentTimeMillis();
+                        //                            ExampleService exampleService = null;
+                                                    try {
+                                                        ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                        String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                        for(int i = 0; i < endNumber; ++i) {
+                                                            getNum.getCharNum(str);
+                                                        }
+                        //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                        //                            exampleService.count(1, endNumber);
+                                                    final long endTime = System.currentTimeMillis();
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                        }
+                                                    });
+                                                }
+                                            }).start();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                                    }
+                                                }
+                                            });
+
+                                            remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    try {
+                                                        if(!manager.isSyncSuccess()) {
+                                                            Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                            return;
+                                                        }
+                                                        remoteResult.setText("运行中...");
+                                                        new Thread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                String end = endNum.getText().toString().trim();
+                                                                if(end.length() == 0) {
+                                                                    runOnUiThread(new Runnable() {
+                                                                        @Override
+                                                                        public void run() {
+                                                                            Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    });
+                                                                    return;
+                                                                }
+                                                                runOnUiThread(new Runnable() {
+                                                                    @Override
+                                                                    public void run() {
+                                                                        remoteResult.setText("运行中...");
+                                                                    }
+                                                                });
+                                                                final long endNumber = Long.valueOf(end);
+                                                                final long startTime = System.currentTimeMillis();
+                                    //                            ExampleService exampleService = null;
+                                                                try {
+                                                                    ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                    String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                    for(int i = 0; i < endNumber; ++i) {
+                                                                        getNum.getCharNum(str);
+                                                                    }
+                                    //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                } catch (Exception e) {
+                                                                    e.printStackTrace();
+                                                                }
+                                    //                            exampleService.count(1, endNumber);
+                                                                final long endTime = System.currentTimeMillis();
+                                                                runOnUiThread(new Runnable() {
+                                                                    @Override
+                                                                    public void run() {
+                                                                        remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                    }
+                                                                });
+                                                            }
+                                                        }).start();
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                                                }
+                                                            }
+                                                        });
+
+                                                        remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(View v) {
+                                                                try {
+                                                                    if(!manager.isSyncSuccess()) {
+                                                                        Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                                        return;
+                                                                    }
+                                                                    remoteResult.setText("运行中...");
+                                                                    new Thread(new Runnable() {
+                                                                        @Override
+                                                                        public void run() {
+                                                                            String end = endNum.getText().toString().trim();
+                                                                            if(end.length() == 0) {
+                                                                                runOnUiThread(new Runnable() {
+                                                                                    @Override
+                                                                                    public void run() {
+                                                                                        Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                });
+                                                                                return;
+                                                                            }
+                                                                            runOnUiThread(new Runnable() {
+                                                                                @Override
+                                                                                public void run() {
+                                                                                    remoteResult.setText("运行中...");
+                                                                                }
+                                                                            });
+                                                                            final long endNumber = Long.valueOf(end);
+                                                                            final long startTime = System.currentTimeMillis();
+                                                //                            ExampleService exampleService = null;
+                                                                            try {
+                                                                                ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                                String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                                for(int i = 0; i < endNumber; ++i) {
+                                                                                    getNum.getCharNum(str);
+                                                                                }
+                                                //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                            } catch (Exception e) {
+                                                                                e.printStackTrace();
+                                                                            }
+                                                //                            exampleService.count(1, endNumber);
+                                                                            final long endTime = System.currentTimeMillis();
+                                                                            runOnUiThread(new Runnable() {
+                                                                                @Override
+                                                                                public void run() {
+                                                                                    remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                                }
+                                                                            });
+                                                                        }
+                                                                    }).start();
+                                                                } catch (Exception e) {
+                                                                    e.printStackTrace();
+                                                                }
+                                                            }
+
+                 }
+             }
+         });
+
+         remoteExecute.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 try {
+                     if(!manager.isSyncSuccess()) {
+                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                         return;
+                     }
+                     remoteResult.setText("运行中...");
+                     new Thread(new Runnable() {
+                         @Override
+                         public void run() {
+                             String end = endNum.getText().toString().trim();
+                             if(end.length() == 0) {
+                                 runOnUiThread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                     }
+                                 });
+                                 return;
+                             }
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("运行中...");
+                                 }
+                             });
+                             final long endNumber = Long.valueOf(end);
+                             final long startTime = System.currentTimeMillis();
+ //                            ExampleService exampleService = null;
+                             try {
+                                 ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                 String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                 for(int i = 0; i < endNumber; ++i) {
+                                     getNum.getCharNum(str);
+                                 }
+ //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+ //                            exampleService.count(1, endNumber);
+                             final long endTime = System.currentTimeMillis();
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                 }
+                             });
+                         }
+                     }).start();
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+
+                 }
+             }
+         });
+
+         remoteExecute.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 try {
+                     if(!manager.isSyncSuccess()) {
+                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                         return;
+                     }
+                     remoteResult.setText("运行中...");
+                     new Thread(new Runnable() {
+                         @Override
+                         public void run() {
+                             String end = endNum.getText().toString().trim();
+                             if(end.length() == 0) {
+                                 runOnUiThread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                     }
+                                 });
+                                 return;
+                             }
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("运行中...");
+                                 }
+                             });
+                             final long endNumber = Long.valueOf(end);
+                             final long startTime = System.currentTimeMillis();
+ //                            ExampleService exampleService = null;
+                             try {
+                                 ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                 String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                 for(int i = 0; i < endNumber; ++i) {
+                                     getNum.getCharNum(str);
+                                 }
+ //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+ //                            exampleService.count(1, endNumber);
+                             final long endTime = System.currentTimeMillis();
+                             runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                 }
+                             });
+                         }
+                     }).start();
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+             }
+                             }
+                         }
+                     });
+
+                     remoteExecute.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View v) {
+                             try {
+                                 if(!manager.isSyncSuccess()) {
+                                     Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                     return;
+                                 }
+                                 remoteResult.setText("运行中...");
+                                 new Thread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         String end = endNum.getText().toString().trim();
+                                         if(end.length() == 0) {
+                                             runOnUiThread(new Runnable() {
+                                                 @Override
+                                                 public void run() {
+                                                     Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                 }
+                                             });
+                                             return;
+                                         }
+                                         runOnUiThread(new Runnable() {
+                                             @Override
+                                             public void run() {
+                                                 remoteResult.setText("运行中...");
+                                             }
+                                         });
+                                         final long endNumber = Long.valueOf(end);
+                                         final long startTime = System.currentTimeMillis();
+             //                            ExampleService exampleService = null;
+                                         try {
+                                             ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                             String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                             for(int i = 0; i < endNumber; ++i) {
+                                                 getNum.getCharNum(str);
+                                             }
+             //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                         } catch (Exception e) {
+                                             e.printStackTrace();
+                                         }
+             //                            exampleService.count(1, endNumber);
+                                         final long endTime = System.currentTimeMillis();
+                                         runOnUiThread(new Runnable() {
+                                             @Override
+                                             public void run() {
+                                                 remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                             }
+                                         });
+                                     }
+                                 }).start();
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+                         }
+                                         }
+                                     }
+                                 });
+
+                                 remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                     @Override
+                                     public void onClick(View v) {
+                                         try {
+                                             if(!manager.isSyncSuccess()) {
+                                                 Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                 return;
+                                             }
+                                             remoteResult.setText("运行中...");
+                                             new Thread(new Runnable() {
+                                                 @Override
+                                                 public void run() {
+                                                     String end = endNum.getText().toString().trim();
+                                                     if(end.length() == 0) {
+                                                         runOnUiThread(new Runnable() {
+                                                             @Override
+                                                             public void run() {
+                                                                 Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                             }
+                                                         });
+                                                         return;
+                                                     }
+                                                     runOnUiThread(new Runnable() {
+                                                         @Override
+                                                         public void run() {
+                                                             remoteResult.setText("运行中...");
+                                                         }
+                                                     });
+                                                     final long endNumber = Long.valueOf(end);
+                                                     final long startTime = System.currentTimeMillis();
+                         //                            ExampleService exampleService = null;
+                                                     try {
+                                                         ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                         String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                         for(int i = 0; i < endNumber; ++i) {
+                                                             getNum.getCharNum(str);
+                                                         }
+                         //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                     } catch (Exception e) {
+                                                         e.printStackTrace();
+                                                     }
+                         //                            exampleService.count(1, endNumber);
+                                                     final long endTime = System.currentTimeMillis();
+                                                     runOnUiThread(new Runnable() {
+                                                         @Override
+                                                         public void run() {
+                                                             remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                         }
+                                                     });
+                                                 }
+                                             }).start();
+                                         } catch (Exception e) {
+                                             e.printStackTrace();
+                                         }
+                                     }
+                                                     }
+                                                 }
+                                             });
+
+                                             remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View v) {
+                                                     try {
+                                                         if(!manager.isSyncSuccess()) {
+                                                             Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                             return;
+                                                         }
+                                                         remoteResult.setText("运行中...");
+                                                         new Thread(new Runnable() {
+                                                             @Override
+                                                             public void run() {
+                                                                 String end = endNum.getText().toString().trim();
+                                                                 if(end.length() == 0) {
+                                                                     runOnUiThread(new Runnable() {
+                                                                         @Override
+                                                                         public void run() {
+                                                                             Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                         }
+                                                                     });
+                                                                     return;
+                                                                 }
+                                                                 runOnUiThread(new Runnable() {
+                                                                     @Override
+                                                                     public void run() {
+                                                                         remoteResult.setText("运行中...");
+                                                                     }
+                                                                 });
+                                                                 final long endNumber = Long.valueOf(end);
+                                                                 final long startTime = System.currentTimeMillis();
+                                     //                            ExampleService exampleService = null;
+                                                                 try {
+                                                                     ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                     String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                     for(int i = 0; i < endNumber; ++i) {
+                                                                         getNum.getCharNum(str);
+                                                                     }
+                                     //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                 } catch (Exception e) {
+                                                                     e.printStackTrace();
+                                                                 }
+                                     //                            exampleService.count(1, endNumber);
+                                                                 final long endTime = System.currentTimeMillis();
+                                                                 runOnUiThread(new Runnable() {
+                                                                     @Override
+                                                                     public void run() {
+                                                                         remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                     }
+                                                                 });
+                                                             }
+                                                         }).start();
+                                                     } catch (Exception e) {
+                                                         e.printStackTrace();
+                                                     }
+                                                 }
+                                                                 }
+                                                             }
+                                                         });
+
+                                                         remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                             @Override
+                                                             public void onClick(View v) {
+                                                                 try {
+                                                                     if(!manager.isSyncSuccess()) {
+                                                                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                                         return;
+                                                                     }
+                                                                     remoteResult.setText("运行中...");
+                                                                     new Thread(new Runnable() {
+                                                                         @Override
+                                                                         public void run() {
+                                                                             String end = endNum.getText().toString().trim();
+                                                                             if(end.length() == 0) {
+                                                                                 runOnUiThread(new Runnable() {
+                                                                                     @Override
+                                                                                     public void run() {
+                                                                                         Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                                     }
+                                                                                 });
+                                                                                 return;
+                                                                             }
+                                                                             runOnUiThread(new Runnable() {
+                                                                                 @Override
+                                                                                 public void run() {
+                                                                                     remoteResult.setText("运行中...");
+                                                                                 }
+                                                                             });
+                                                                             final long endNumber = Long.valueOf(end);
+                                                                             final long startTime = System.currentTimeMillis();
+                                                 //                            ExampleService exampleService = null;
+                                                                             try {
+                                                                                 ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                                 String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                                 for(int i = 0; i < endNumber; ++i) {
+                                                                                     getNum.getCharNum(str);
+                                                                                 }
+                                                 //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                             } catch (Exception e) {
+                                                                                 e.printStackTrace();
+                                                                             }
+                                                 //                            exampleService.count(1, endNumber);
+                                                                             final long endTime = System.currentTimeMillis();
+                                                                             runOnUiThread(new Runnable() {
+                                                                                 @Override
+                                                                                 public void run() {
+                                                                                     remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                                 }
+                                                                             });
+                                                                         }
+                                                                     }).start();
+                                                                 } catch (Exception e) {
+                                                                     e.printStackTrace();
+                                                                 }
+                                                             }
+
+                  }
+              }
+          });
+
+          remoteExecute.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  try {
+                      if(!manager.isSyncSuccess()) {
+                          Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                          return;
+                      }
+                      remoteResult.setText("运行中...");
+                      new Thread(new Runnable() {
+                          @Override
+                          public void run() {
+                              String end = endNum.getText().toString().trim();
+                              if(end.length() == 0) {
+                                  runOnUiThread(new Runnable() {
+                                      @Override
+                                      public void run() {
+                                          Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                      }
+                                  });
+                                  return;
+                              }
+                              runOnUiThread(new Runnable() {
+                                  @Override
+                                  public void run() {
+                                      remoteResult.setText("运行中...");
+                                  }
+                              });
+                              final long endNumber = Long.valueOf(end);
+                              final long startTime = System.currentTimeMillis();
+  //                            ExampleService exampleService = null;
+                              try {
+                                  ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                  String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                  for(int i = 0; i < endNumber; ++i) {
+                                      getNum.getCharNum(str);
+                                  }
+  //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                              } catch (Exception e) {
+                                  e.printStackTrace();
+                              }
+  //                            exampleService.count(1, endNumber);
+                              final long endTime = System.currentTimeMillis();
+                              runOnUiThread(new Runnable() {
+                                  @Override
+                                  public void run() {
+                                      remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                  }
+                              });
+                          }
+                      }).start();
+                  } catch (Exception e) {
+                      e.printStackTrace();
+                  }
+              }
+                  }
+               }
+           });
+
+           remoteExecute.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   try {
+                       if(!manager.isSyncSuccess()) {
+                           Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                           return;
+                       }
+                       remoteResult.setText("运行中...");
+                       new Thread(new Runnable() {
+                           @Override
+                           public void run() {
+                               String end = endNum.getText().toString().trim();
+                               if(end.length() == 0) {
+                                   runOnUiThread(new Runnable() {
+                                       @Override
+                                       public void run() {
+                                           Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                       }
+                                   });
+                                   return;
+                               }
+                               runOnUiThread(new Runnable() {
+                                   @Override
+                                   public void run() {
+                                       remoteResult.setText("运行中...");
+                                   }
+                               });
+                               final long endNumber = Long.valueOf(end);
+                               final long startTime = System.currentTimeMillis();
+   //                            ExampleService exampleService = null;
+                               try {
+                                   ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                   String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                   for(int i = 0; i < endNumber; ++i) {
+                                       getNum.getCharNum(str);
+                                   }
+   //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                               } catch (Exception e) {
+                                   e.printStackTrace();
+                               }
+   //                            exampleService.count(1, endNumber);
+                               final long endTime = System.currentTimeMillis();
+                               runOnUiThread(new Runnable() {
+                                   @Override
+                                   public void run() {
+                                       remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                   }
+                               });
+                           }
+                       }).start();
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                   }
+               }
+                               }
+                           }
+                       });
+
+                       remoteExecute.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View v) {
+                               try {
+                                   if(!manager.isSyncSuccess()) {
+                                       Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                       return;
+                                   }
+                                   remoteResult.setText("运行中...");
+                                   new Thread(new Runnable() {
+                                       @Override
+                                       public void run() {
+                                           String end = endNum.getText().toString().trim();
+                                           if(end.length() == 0) {
+                                               runOnUiThread(new Runnable() {
+                                                   @Override
+                                                   public void run() {
+                                                       Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                   }
+                                               });
+                                               return;
+                                           }
+                                           runOnUiThread(new Runnable() {
+                                               @Override
+                                               public void run() {
+                                                   remoteResult.setText("运行中...");
+                                               }
+                                           });
+                                           final long endNumber = Long.valueOf(end);
+                                           final long startTime = System.currentTimeMillis();
+               //                            ExampleService exampleService = null;
+                                           try {
+                                               ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                               String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                               for(int i = 0; i < endNumber; ++i) {
+                                                   getNum.getCharNum(str);
+                                               }
+               //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                           } catch (Exception e) {
+                                               e.printStackTrace();
+                                           }
+               //                            exampleService.count(1, endNumber);
+                                           final long endTime = System.currentTimeMillis();
+                                           runOnUiThread(new Runnable() {
+                                               @Override
+                                               public void run() {
+                                                   remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                               }
+                                           });
+                                       }
+                                   }).start();
+                               } catch (Exception e) {
+                                   e.printStackTrace();
+                               }
+                           }
+                                           }
+                                       }
+                                   });
+
+                                   remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View v) {
+                                           try {
+                                               if(!manager.isSyncSuccess()) {
+                                                   Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                   return;
+                                               }
+                                               remoteResult.setText("运行中...");
+                                               new Thread(new Runnable() {
+                                                   @Override
+                                                   public void run() {
+                                                       String end = endNum.getText().toString().trim();
+                                                       if(end.length() == 0) {
+                                                           runOnUiThread(new Runnable() {
+                                                               @Override
+                                                               public void run() {
+                                                                   Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                               }
+                                                           });
+                                                           return;
+                                                       }
+                                                       runOnUiThread(new Runnable() {
+                                                           @Override
+                                                           public void run() {
+                                                               remoteResult.setText("运行中...");
+                                                           }
+                                                       });
+                                                       final long endNumber = Long.valueOf(end);
+                                                       final long startTime = System.currentTimeMillis();
+                           //                            ExampleService exampleService = null;
+                                                       try {
+                                                           ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                           String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                           for(int i = 0; i < endNumber; ++i) {
+                                                               getNum.getCharNum(str);
+                                                           }
+                           //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                       } catch (Exception e) {
+                                                           e.printStackTrace();
+                                                       }
+                           //                            exampleService.count(1, endNumber);
+                                                       final long endTime = System.currentTimeMillis();
+                                                       runOnUiThread(new Runnable() {
+                                                           @Override
+                                                           public void run() {
+                                                               remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                           }
+                                                       });
+                                                   }
+                                               }).start();
+                                           } catch (Exception e) {
+                                               e.printStackTrace();
+                                           }
+                                       }
+                                                       }
+                                                   }
+                                               });
+
+                                               remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                   @Override
+                                                   public void onClick(View v) {
+                                                       try {
+                                                           if(!manager.isSyncSuccess()) {
+                                                               Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                               return;
+                                                           }
+                                                           remoteResult.setText("运行中...");
+                                                           new Thread(new Runnable() {
+                                                               @Override
+                                                               public void run() {
+                                                                   String end = endNum.getText().toString().trim();
+                                                                   if(end.length() == 0) {
+                                                                       runOnUiThread(new Runnable() {
+                                                                           @Override
+                                                                           public void run() {
+                                                                               Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                           }
+                                                                       });
+                                                                       return;
+                                                                   }
+                                                                   runOnUiThread(new Runnable() {
+                                                                       @Override
+                                                                       public void run() {
+                                                                           remoteResult.setText("运行中...");
+                                                                       }
+                                                                   });
+                                                                   final long endNumber = Long.valueOf(end);
+                                                                   final long startTime = System.currentTimeMillis();
+                                       //                            ExampleService exampleService = null;
+                                                                   try {
+                                                                       ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                       String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                       for(int i = 0; i < endNumber; ++i) {
+                                                                           getNum.getCharNum(str);
+                                                                       }
+                                       //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                   } catch (Exception e) {
+                                                                       e.printStackTrace();
+                                                                   }
+                                       //                            exampleService.count(1, endNumber);
+                                                                   final long endTime = System.currentTimeMillis();
+                                                                   runOnUiThread(new Runnable() {
+                                                                       @Override
+                                                                       public void run() {
+                                                                           remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                       }
+                                                                   });
+                                                               }
+                                                           }).start();
+                                                       } catch (Exception e) {
+                                                           e.printStackTrace();
+                                                       }
+                                                   }
+                                                                   }
+                                                               }
+                                                           });
+
+                                                           remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                               @Override
+                                                               public void onClick(View v) {
+                                                                   try {
+                                                                       if(!manager.isSyncSuccess()) {
+                                                                           Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                                           return;
+                                                                       }
+                                                                       remoteResult.setText("运行中...");
+                                                                       new Thread(new Runnable() {
+                                                                           @Override
+                                                                           public void run() {
+                                                                               String end = endNum.getText().toString().trim();
+                                                                               if(end.length() == 0) {
+                                                                                   runOnUiThread(new Runnable() {
+                                                                                       @Override
+                                                                                       public void run() {
+                                                                                           Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                                       }
+                                                                                   });
+                                                                                   return;
+                                                                               }
+                                                                               runOnUiThread(new Runnable() {
+                                                                                   @Override
+                                                                                   public void run() {
+                                                                                       remoteResult.setText("运行中...");
+                                                                                   }
+                                                                               });
+                                                                               final long endNumber = Long.valueOf(end);
+                                                                               final long startTime = System.currentTimeMillis();
+                                                   //                            ExampleService exampleService = null;
+                                                                               try {
+                                                                                   ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                                   String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                                   for(int i = 0; i < endNumber; ++i) {
+                                                                                       getNum.getCharNum(str);
+                                                                                   }
+                                                   //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                               } catch (Exception e) {
+                                                                                   e.printStackTrace();
+                                                                               }
+                                                   //                            exampleService.count(1, endNumber);
+                                                                               final long endTime = System.currentTimeMillis();
+                                                                               runOnUiThread(new Runnable() {
+                                                                                   @Override
+                                                                                   public void run() {
+                                                                                       remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                                   }
+                                                                               });
+                                                                           }
+                                                                       }).start();
+                                                                   } catch (Exception e) {
+                                                                       e.printStackTrace();
+                                                                   }
+                                                               }
+
+                    }
+                }
+            });
+
+            remoteExecute.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        if(!manager.isSyncSuccess()) {
+                            Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        remoteResult.setText("运行中...");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String end = endNum.getText().toString().trim();
+                                if(end.length() == 0) {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    return;
+                                }
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        remoteResult.setText("运行中...");
+                                    }
+                                });
+                                final long endNumber = Long.valueOf(end);
+                                final long startTime = System.currentTimeMillis();
+    //                            ExampleService exampleService = null;
+                                try {
+                                    ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                    String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                    for(int i = 0; i < endNumber; ++i) {
+                                        getNum.getCharNum(str);
+                                    }
+    //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+    //                            exampleService.count(1, endNumber);
+                                final long endTime = System.currentTimeMillis();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                    }
+                                });
+                            }
+                        }).start();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    }
+                }
+            });
+
+            remoteExecute.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        if(!manager.isSyncSuccess()) {
+                            Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        remoteResult.setText("运行中...");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String end = endNum.getText().toString().trim();
+                                if(end.length() == 0) {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    return;
+                                }
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        remoteResult.setText("运行中...");
+                                    }
+                                });
+                                final long endNumber = Long.valueOf(end);
+                                final long startTime = System.currentTimeMillis();
+    //                            ExampleService exampleService = null;
+                                try {
+                                    ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                    String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                    for(int i = 0; i < endNumber; ++i) {
+                                        getNum.getCharNum(str);
+                                    }
+    //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+    //                            exampleService.count(1, endNumber);
+                                final long endTime = System.currentTimeMillis();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                    }
+                                });
+                            }
+                        }).start();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                                }
+                            }
+                        });
+
+                        remoteExecute.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    if(!manager.isSyncSuccess()) {
+                                        Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                    remoteResult.setText("运行中...");
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            String end = endNum.getText().toString().trim();
+                                            if(end.length() == 0) {
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                                return;
+                                            }
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    remoteResult.setText("运行中...");
+                                                }
+                                            });
+                                            final long endNumber = Long.valueOf(end);
+                                            final long startTime = System.currentTimeMillis();
+                //                            ExampleService exampleService = null;
+                                            try {
+                                                ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                for(int i = 0; i < endNumber; ++i) {
+                                                    getNum.getCharNum(str);
+                                                }
+                //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                //                            exampleService.count(1, endNumber);
+                                            final long endTime = System.currentTimeMillis();
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                }
+                                            });
+                                        }
+                                    }).start();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                                            }
+                                        }
+                                    });
+
+                                    remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            try {
+                                                if(!manager.isSyncSuccess()) {
+                                                    Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                    return;
+                                                }
+                                                remoteResult.setText("运行中...");
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        String end = endNum.getText().toString().trim();
+                                                        if(end.length() == 0) {
+                                                            runOnUiThread(new Runnable() {
+                                                                @Override
+                                                                public void run() {
+                                                                    Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            });
+                                                            return;
+                                                        }
+                                                        runOnUiThread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                remoteResult.setText("运行中...");
+                                                            }
+                                                        });
+                                                        final long endNumber = Long.valueOf(end);
+                                                        final long startTime = System.currentTimeMillis();
+                            //                            ExampleService exampleService = null;
+                                                        try {
+                                                            ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                            String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                            for(int i = 0; i < endNumber; ++i) {
+                                                                getNum.getCharNum(str);
+                                                            }
+                            //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                        } catch (Exception e) {
+                                                            e.printStackTrace();
+                                                        }
+                            //                            exampleService.count(1, endNumber);
+                                                        final long endTime = System.currentTimeMillis();
+                                                        runOnUiThread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                            }
+                                                        });
+                                                    }
+                                                }).start();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                                        }
+                                                    }
+                                                });
+
+                                                remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View v) {
+                                                        try {
+                                                            if(!manager.isSyncSuccess()) {
+                                                                Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                                return;
+                                                            }
+                                                            remoteResult.setText("运行中...");
+                                                            new Thread(new Runnable() {
+                                                                @Override
+                                                                public void run() {
+                                                                    String end = endNum.getText().toString().trim();
+                                                                    if(end.length() == 0) {
+                                                                        runOnUiThread(new Runnable() {
+                                                                            @Override
+                                                                            public void run() {
+                                                                                Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                            }
+                                                                        });
+                                                                        return;
+                                                                    }
+                                                                    runOnUiThread(new Runnable() {
+                                                                        @Override
+                                                                        public void run() {
+                                                                            remoteResult.setText("运行中...");
+                                                                        }
+                                                                    });
+                                                                    final long endNumber = Long.valueOf(end);
+                                                                    final long startTime = System.currentTimeMillis();
+                                        //                            ExampleService exampleService = null;
+                                                                    try {
+                                                                        ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                        String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                        for(int i = 0; i < endNumber; ++i) {
+                                                                            getNum.getCharNum(str);
+                                                                        }
+                                        //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                    } catch (Exception e) {
+                                                                        e.printStackTrace();
+                                                                    }
+                                        //                            exampleService.count(1, endNumber);
+                                                                    final long endTime = System.currentTimeMillis();
+                                                                    runOnUiThread(new Runnable() {
+                                                                        @Override
+                                                                        public void run() {
+                                                                            remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                        }
+                                                                    });
+                                                                }
+                                                            }).start();
+                                                        } catch (Exception e) {
+                                                            e.printStackTrace();
+                                                        }
+                                                    }
+                                                                    }
+                                                                }
+                                                            });
+
+                                                            remoteExecute.setOnClickListener(new View.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(View v) {
+                                                                    try {
+                                                                        if(!manager.isSyncSuccess()) {
+                                                                            Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                                                                            return;
+                                                                        }
+                                                                        remoteResult.setText("运行中...");
+                                                                        new Thread(new Runnable() {
+                                                                            @Override
+                                                                            public void run() {
+                                                                                String end = endNum.getText().toString().trim();
+                                                                                if(end.length() == 0) {
+                                                                                    runOnUiThread(new Runnable() {
+                                                                                        @Override
+                                                                                        public void run() {
+                                                                                            Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                                                                        }
+                                                                                    });
+                                                                                    return;
+                                                                                }
+                                                                                runOnUiThread(new Runnable() {
+                                                                                    @Override
+                                                                                    public void run() {
+                                                                                        remoteResult.setText("运行中...");
+                                                                                    }
+                                                                                });
+                                                                                final long endNumber = Long.valueOf(end);
+                                                                                final long startTime = System.currentTimeMillis();
+                                                    //                            ExampleService exampleService = null;
+                                                                                try {
+                                                                                    ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                                                                    String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                                                                    for(int i = 0; i < endNumber; ++i) {
+                                                                                        getNum.getCharNum(str);
+                                                                                    }
+                                                    //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                                                                } catch (Exception e) {
+                                                                                    e.printStackTrace();
+                                                                                }
+                                                    //                            exampleService.count(1, endNumber);
+                                                                                final long endTime = System.currentTimeMillis();
+                                                                                runOnUiThread(new Runnable() {
+                                                                                    @Override
+                                                                                    public void run() {
+                                                                                        remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                                                                    }
+                                                                                });
+                                                                            }
+                                                                        }).start();
+                                                                    } catch (Exception e) {
+                                                                        e.printStackTrace();
+                                                                    }
+                                                                }
+
+                     }
+                 }
+             });
+
+             remoteExecute.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     try {
+                         if(!manager.isSyncSuccess()) {
+                             Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
+                             return;
+                         }
+                         remoteResult.setText("运行中...");
+                         new Thread(new Runnable() {
+                             @Override
+                             public void run() {
+                                 String end = endNum.getText().toString().trim();
+                                 if(end.length() == 0) {
+                                     runOnUiThread(new Runnable() {
+                                         @Override
+                                         public void run() {
+                                             Toast.makeText(selfActivity, "请设置参数", Toast.LENGTH_SHORT).show();
+                                         }
+                                     });
+                                     return;
+                                 }
+                                 runOnUiThread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         remoteResult.setText("运行中...");
+                                     }
+                                 });
+                                 final long endNumber = Long.valueOf(end);
+                                 final long startTime = System.currentTimeMillis();
+     //                            ExampleService exampleService = null;
+                                 try {
+                                     ExampleService2 getNum = (ExampleService2) InstanceMaker.make("me.zkk.kkapp.ExampleService2", "me.zkk.kkapp.GetCharNum");;
+                                     String str = Functions.readTextFromAssets(selfActivity.getAssets().open("content"));
+                                     for(int i = 0; i < endNumber; ++i) {
+                                         getNum.getCharNum(str);
+                                     }
+     //                                exampleService = (ExampleService) InstanceMaker.make("me.zkk.kkapp.ExampleService", "me.zkk.kkapp.ExampleServiceImpl");
+                                 } catch (Exception e) {
+                                     e.printStackTrace();
+                                 }
+     //                            exampleService.count(1, endNumber);
+                                 final long endTime = System.currentTimeMillis();
+                                 runOnUiThread(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         remoteResult.setText("嵌套循环次数：" + endNumber + "\n运行结束\n耗时" + (endTime - startTime) + "ms");
+                                     }
+                                 });
+                             }
+                         }).start();
+                     } catch (Exception e) {
+                         e.printStackTrace();
+                     }
+                 }
