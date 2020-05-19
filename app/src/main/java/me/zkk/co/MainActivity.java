@@ -206,7 +206,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(selfActivity, "未同步，运行失败", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    remoteResult.setText("运行中...");
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
